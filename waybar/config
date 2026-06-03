@@ -1,0 +1,162 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "height": 40,
+    "spacing": 6,
+
+    "margin-top": 8,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/weather"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "custom/media",
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "temperature",
+        "battery",
+        "tray",
+        "custom/power-profile"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+
+        "format": "{icon}",
+
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5"
+        },
+
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "custom/weather": {
+        "exec": "~/.config/waybar/weather.sh",
+        "return-type": "json",
+        "interval": 600,
+        "format": "{}",
+        "tooltip": true
+    },
+
+    "custom/media": {
+        "exec": "~/.config/waybar/media-player.sh",
+        "return-type": "json",
+        "interval": 2,
+        "max-length": 40,
+        "format": "{}",
+        "on-click": "playerctl play-pause"
+    },
+
+    "clock": {
+        "interval": 1,
+
+        "format": "󰥔 {:%H:%M}",
+
+        "format-alt": "󰃭 {:%A, %d %B %Y}",
+
+        "tooltip-format": "<big>{:%Y}</big>\n<tt><small>{calendar}</small></tt>",
+
+        "calendar": {
+            "mode": "month",
+
+            "weeks-pos": "right",
+
+            "on-scroll": 1,
+
+            "format": {
+                "months": "<span color='#c49a6c'><b>{}</b></span>",
+                "weekdays": "<span color='#d4d4d4'><b>{}</b></span>",
+                "days": "<span color='#d4d4d4'>{}</span>",
+                "today": "<span color='#c49a6c'><b>{}</b></span>"
+            }
+        }
+    },
+
+    "cpu": {
+        "format": " {usage}% ",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": " {}%"
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+
+        "format": " {temperatureC}°C "
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+
+        "format": " {capacity}% ",
+
+        "format-charging": " {capacity}% ",
+
+        "format-plugged": " {capacity}% ",
+
+        "format-alt": "{time}"
+    },
+
+    "network": {
+        "format-wifi": " {signalStrength}% ",
+
+        "format-ethernet": " Ethernet ",
+
+        "format-linked": " No IP ",
+
+        "format-disconnected": " Offline ",
+
+        "tooltip-format": "{essid}\n{ipaddr}"
+    },
+
+    "pulseaudio": {
+        "format": " {volume}% ",
+
+        "format-muted": " Muted ",
+
+        "on-click": "pavucontrol"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "custom/power-profile": {
+        "exec": "~/.config/waybar/scripts/power-status.sh",
+
+        "return-type": "json",
+
+        "format": "{}",
+
+        "interval": "once",
+
+        "signal": 12,
+
+        "on-click": "~/.config/waybar/scripts/power-menu.sh"
+    }
+}

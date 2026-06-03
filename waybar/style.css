@@ -1,0 +1,225 @@
+/* ==================================================
+ *  GRAPHITE BRONZE WAYBAR
+ *  ThinkPad T470 / Hyprland
+ *  ================================================== */
+
+@define-color bg #0d0d0d;
+@define-color bg-alt #151515;
+
+@define-color surface #1b1b1b;
+@define-color surface-alt #222222;
+
+@define-color border #2a2a2a;
+
+@define-color text #d4d4d4;
+@define-color muted #808080;
+
+@define-color accent #c49a6c;
+@define-color accent-dark #9e7a50;
+
+* {
+    border: none;
+    border-radius: 0;
+
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: 600;
+
+    min-height: 0;
+}
+
+/* ==================================================
+ *  BAR
+ *  ================================================== */
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+/* ==================================================
+ *  ALL MODULES
+ *  ================================================== */
+
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#network,
+#pulseaudio,
+#tray,
+#custom-media,
+#custom-weather,
+#custom-power-profile {
+
+background: rgba(20,20,20,0.88);
+
+border: 1px solid rgba(196,154,108,0.10);
+
+border-radius: 14px;
+
+margin-top: 6px;
+margin-bottom: 6px;
+margin-left: 3px;
+margin-right: 3px;
+
+padding-left: 14px;
+padding-right: 14px;
+
+color: @text;
+}
+
+/* ==================================================
+ *  WORKSPACES
+ *  ================================================== */
+
+#workspaces {
+padding: 0 5px;
+}
+
+#workspaces button {
+
+background: transparent;
+
+color: @muted;
+
+padding: 0 10px;
+
+margin: 3px;
+
+border-radius: 10px;
+
+transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+
+background: rgba(196,154,108,0.12);
+
+color: @accent;
+}
+
+#workspaces button.active {
+
+background: @accent;
+
+color: #111111;
+}
+
+#workspaces button.urgent {
+
+background: #b84d4d;
+
+color: #ffffff;
+}
+
+/* ==================================================
+ *  MODULE COLORS
+ *  ================================================== */
+
+#clock {
+color: @accent;
+}
+
+#custom-weather {
+color: @accent;
+}
+
+#custom-power-profile {
+color: @accent;
+}
+
+#temperature {
+color: @accent;
+}
+
+#battery {
+color: @accent;
+}
+
+#custom-media {
+min-width: 220px;
+color: #bdbdbd;
+}
+
+#network {
+color: #bdbdbd;
+}
+
+#pulseaudio {
+color: #bdbdbd;
+}
+
+#cpu {
+color: #bdbdbd;
+}
+
+#memory {
+color: #bdbdbd;
+}
+
+/* ==================================================
+ *  STATES
+ *  ================================================== */
+
+#battery.warning {
+color: #d6b36d;
+}
+
+#battery.critical {
+color: #d16969;
+}
+
+#temperature.critical {
+color: #d16969;
+}
+
+#network.disconnected {
+color: #d16969;
+}
+
+#pulseaudio.muted {
+color: @muted;
+}
+
+/* ==================================================
+ *  TRAY
+ *  ================================================== */
+
+#tray {
+padding-left: 10px;
+padding-right: 10px;
+}
+
+/* ==================================================
+ *  TOOLTIPS
+ *  ================================================== */
+
+tooltip {
+
+    background: #151515;
+
+    border: 1px solid @border;
+
+    border-radius: 12px;
+}
+
+tooltip label {
+
+    color: @text;
+
+    padding: 6px;
+}
+
+/* ==================================================
+ *  ANIMATIONS
+ *  ================================================== */
+
+* {
+    transition-property: background-color,
+    border-color,
+    color;
+    transition-duration: 150ms;
+}

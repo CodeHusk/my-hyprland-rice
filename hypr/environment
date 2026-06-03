@@ -1,0 +1,2 @@
+export GDK_BACKEND=wayland,x11
+export QT_QPA_PLATFORM=wayland;xcb
